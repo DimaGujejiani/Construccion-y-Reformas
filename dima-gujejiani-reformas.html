@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dima Gujejiani — Reformas y Pladur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plaster: #EDEAE3;
+    --plaster-card: #FAF9F5;
+    --charcoal: #221F1B;
+    --charcoal-soft: #34302A;
+    --chalk: #2B4570;
+    --chalk-bright: #3E5F92;
+    --ochre: #B8823F;
+    --grey-mid: #9C978C;
+    --grey-line: #D6D2C8;
+    --wa-green: #3F8F5F;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--plaster);
+    color: var(--charcoal);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 0.95;
+    margin: 0;
+    color: var(--charcoal);
+  }
+
+  a { color: inherit; }
+
+  img, svg { display:block; max-width:100%; }
+
+  .wrap{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(237,234,227,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 16px 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+  .brand{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .brand span{ color: var(--chalk); }
+  .header-actions{
+    display:flex;
+    gap: 10px;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 10px 18px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration:none;
+    border: 1.5px solid transparent;
+    cursor:pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border-color .15s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-primary{ background: var(--chalk); color: var(--plaster-card); }
+  .btn-primary:hover{ background: var(--chalk-bright); }
+  .btn-outline{ background: transparent; border-color: var(--charcoal); color: var(--charcoal); }
+  .btn-outline:hover{ background: var(--charcoal); color: var(--plaster-card); }
+  .btn-sm{ padding: 8px 14px; font-size: 0.85rem; }
+
+  @media (max-width: 620px){
+    .header-actions .btn-label{ display:none; }
+    .header-actions .btn{ padding: 10px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    padding: 76px 0 96px;
+    overflow: hidden;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  @media (max-width: 860px){
+    .hero-inner{ grid-template-columns: 1fr; }
+  }
+  .eyebrow-line{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    color: var(--chalk);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .eyebrow-line .dash{
+    width: 34px; height: 2px; background: var(--chalk); display:block;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+  }
+  .hero h1 .row{ display:block; }
+  .hero-sub{
+    margin-top: 22px;
+    max-width: 46ch;
+    font-size: 1.1rem;
+    color: var(--charcoal-soft);
+  }
+  .hero-ctas{
+    margin-top: 32px;
+    display:flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-side{
+    border-left: 2px solid var(--grey-line);
+    padding-left: 26px;
+  }
+  .hero-fact{
+    padding: 14px 0;
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .hero-fact:last-child{ border-bottom: none; }
+  .hero-fact .num{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--chalk);
+    display:block;
+  }
+  .hero-fact .label{ font-size: 0.92rem; color: var(--charcoal-soft); }
+
+  /* chalk line svg */
+  .chalkline-wrap{
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .chalkline-path{
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: snap 1.1s cubic-bezier(.2,.9,.25,1) 0.2s forwards;
+  }
+  @keyframes snap{ to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce){
+    .chalkline-path{ stroke-dashoffset: 0; animation: none; }
+  }
+  .hero-inner{ position:relative; z-index:1; }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 76px 0; }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap: 20px;
+    margin-bottom: 44px;
+    border-bottom: 2px solid var(--charcoal);
+    padding-bottom: 18px;
+  }
+  .section-head h2{
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+  .section-head .note{
+    color: var(--charcoal-soft);
+    font-size: 0.95rem;
+    max-width: 30ch;
+    text-align: right;
+  }
+  @media (max-width: 620px){
+    .section-head{ flex-direction:column; align-items: flex-start; }
+    .section-head .note{ text-align:left; }
+  }
+
+  /* ---------- Services ---------- */
+  .services{ background: var(--plaster); }
+  .service-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--grey-line);
+    border-left: 1px solid var(--grey-line);
+  }
+  @media (max-width: 860px){ .service-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .service-grid{ grid-template-columns: 1fr; } }
+  .service{
+    padding: 30px 26px;
+    border-right: 1px solid var(--grey-line);
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .service svg{ width: 40px; height: 40px; margin-bottom: 18px; }
+  .service h3{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .service p{ margin:0; color: var(--charcoal-soft); font-size: 0.96rem; }
+
+  /* ---------- Zone ---------- */
+  .zone{ background: var(--charcoal); color: var(--plaster); }
+  .zone h2{ color: var(--plaster); }
+  .zone .section-head{ border-bottom-color: var(--plaster); }
+  .zone .section-head .note{ color: #C9C4B8; }
+  .zone-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 760px){ .zone-grid{ grid-template-columns: 1fr; } }
+  .zone-block h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+    letter-spacing: 0.02em;
+    color: var(--ochre);
+    margin-bottom: 12px;
+  }
+  .zone-list{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .zone-list li{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(250,249,245,0.15);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .zone-block.consulta .zone-list li{
+    color: #C9C4B8;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  .zone-note{
+    margin-top: 18px;
+    color: #C9C4B8;
+    font-size: 0.95rem;
+    max-width: 42ch;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 860px){ .gallery-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .gallery-grid{ grid-template-columns: 1fr; } }
+  .gallery-card{
+    background: var(--plaster-card);
+    border: 1px solid var(--grey-line);
+    padding: 22px 20px 18px;
+  }
+  .gallery-card svg{ width: 100%; height: 130px; }
+  .gallery-caption{
+    margin-top: 14px;
+    display:flex;
+    justify-content: space-between;
+    align-items:baseline;
+    gap: 10px;
+  }
+  .gallery-caption .title{ font-weight: 600; font-size: 0.96rem; }
+  .gallery-caption .tag{
+    font-size: 0.78rem;
+    color: var(--grey-mid);
+    white-space:nowrap;
+  }
+  .gallery-hint{
+    margin-top: 26px;
+    padding: 16px 18px;
+    border: 1px dashed var(--grey-line);
+    color: var(--charcoal-soft);
+    font-size: 0.9rem;
+  }
+
+  /* ---------- About strip ---------- */
+  .about{
+    background: var(--plaster-card);
+    border-top: 1px solid var(--grey-line);
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .about-inner{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+    align-items:center;
+  }
+  @media (max-width: 800px){ .about-inner{ grid-template-columns: 1fr; } }
+  .about h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 18px; }
+  .about p{ color: var(--charcoal-soft); margin: 0 0 14px; max-width: 52ch; }
+  .about-marks{ display:flex; flex-direction:column; gap: 0; }
+  .about-mark{
+    display:flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--grey-line);
+  }
+  .about-mark:last-child{ border-bottom: 1px solid var(--grey-line); }
+  .about-mark svg{ width: 26px; height: 26px; flex-shrink:0; margin-top: 2px; }
+  .about-mark span{ font-size: 0.96rem; color: var(--charcoal-soft); }
+
+  /* ---------- Contact / form ---------- */
+  .contact{ background: var(--charcoal); color: var(--plaster); }
+  .contact h2{ color: var(--plaster); }
+  .contact .section-head{ border-bottom-color: var(--plaster); }
+  .contact .section-head .note{ color: #C9C4B8; }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+  }
+  @media (max-width: 860px){ .contact-grid{ grid-template-columns: 1fr; } }
+  .contact-info-item{
+    display:flex;
+    align-items:flex-start;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(250,249,245,0.15);
+  }
+  .contact-info-item svg{ width: 24px; height:24px; margin-top:2px; flex-shrink:0; color: var(--ochre); }
+  .contact-info-item a{ text-decoration:none; }
+  .contact-info-item .lab{ font-size: 0.8rem; color: #C9C4B8; margin-bottom: 3px; }
+  .contact-info-item .val{ font-family:'Big Shoulders Display',sans-serif; font-size:1.4rem; font-weight:700; }
+
+  form{
+    background: var(--plaster-card);
+    color: var(--charcoal);
+    padding: 34px;
+  }
+  @media (max-width: 480px){ form{ padding: 24px 20px; } }
+  .field{ margin-bottom: 20px; }
+  .field label{
+    display:block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  .field input[type=text], .field input[type=tel], .field textarea{
+    width: 100%;
+    border: 1.5px solid var(--grey-line);
+    background: #fff;
+    padding: 11px 13px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.98rem;
+    border-radius: 2px;
+    color: var(--charcoal);
+  }
+  .field input:focus, .field textarea:focus{
+    outline: none;
+    border-color: var(--chalk);
+    box-shadow: 0 0 0 3px rgba(43,69,112,0.18);
+  }
+  .field textarea{ min-height: 110px; resize: vertical; }
+  .checks{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 16px;
+  }
+  @media (max-width: 420px){ .checks{ grid-template-columns: 1fr; } }
+  .check-item{
+    display:flex;
+    align-items:center;
+    gap: 9px;
+    font-size: 0.92rem;
+  }
+  .check-item input{ width: 17px; height: 17px; accent-color: var(--chalk); }
+  .form-note{
+    font-size: 0.82rem;
+    color: var(--grey-mid);
+    margin-top: 6px;
+  }
+  .submit-row{
+    margin-top: 26px;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-submit{
+    background: var(--wa-green);
+    color: #fff;
+    border: none;
+    padding: 13px 24px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    border-radius: 2px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap: 9px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-submit:hover{ background: #367a52; transform: translateY(-1px); }
+  .btn-submit svg{ width: 19px; height: 19px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--charcoal);
+    color: #C9C4B8;
+    padding: 30px 0 40px;
+    border-top: 1px solid rgba(250,249,245,0.12);
+    font-size: 0.88rem;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 12px;
+    align-items:center;
+  }
+  .footer-row .fbrand{ color: var(--plaster); font-weight:600; }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .fab-wa{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 60;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: var(--wa-green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    text-decoration:none;
+    transition: transform 0.15s ease;
+  }
+  .fab-wa:hover{ transform: scale(1.06); }
+  .fab-wa svg{ width: 28px; height: 28px; }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  :focus-visible{ outline: 2.5px solid var(--chalk); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <div class="brand">Dima Gujejiani <span>· Reformas</span></div>
+    <div class="header-actions">
+      <a class="btn btn-outline btn-sm" href="tel:+34603353755">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.5 6.5l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        <span class="btn-label">603 35 37 55</span>
+      </a>
+      <a class="btn btn-primary btn-sm" href="#presupuesto">
+        <span class="btn-label">Pedir presupuesto</span>
+        <span aria-hidden="true" class="btn-label" style="display:none"></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="chalkline-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1100 500" width="100%" height="100%" preserveAspectRatio="none" style="position:absolute;inset:0;">
+      <line class="chalkline-path" x1="-20" y1="60" x2="1150" y2="440" stroke="#2B4570" stroke-width="2" opacity="0.35"/>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow-line"><span class="dash"></span>Reformas de interior y pladur</div>
+      <h1>
+        <span class="row">Paredes rectas.</span>
+        <span class="row">Techos limpios.</span>
+        <span class="row">Todo a nivel.</span>
+      </h1>
+      <p class="hero-sub">Trabajo solo, con calma y sin dejar líos. Tabiques, techos, aislamiento y reformas de interior en País Vasco y Cantabria. Todo menos fontanería y electricidad — eso lo dejo para quien sabe de eso.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#presupuesto">Pedir presupuesto</a>
+        <a class="btn btn-outline" href="https://wa.me/34603353755" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-fact">
+        <span class="num">2</span>
+        <span class="label">comunidades como zona principal — más una tercera si el pueblo cae cerca</span>
+      </div>
+      <div class="hero-fact">
+        <span class="num">1</span>
+        <span class="label">persona en cada obra: yo. Tú hablas siempre conmigo, no con un comercial</span>
+      </div>
+      <div class="hero-fact">
+        <span class="num">0</span>
+        <span class="label">fontanería, 0 electricidad — cada oficio, en manos de quien lo domina</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Servicios</h2>
+      <div class="note">Reforma de interior de arriba abajo, con el pladur como oficio principal.</div>
+    </div>
+    <div class="service-grid">
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><rect x="8" y="6" width="24" height="28" rx="0"/><line x1="20" y1="6" x2="20" y2="34"/><line x1="8" y1="18" x2="32" y2="18" stroke-dasharray="2 2"/></svg>
+        <h3>Tabiques y trasdosados</h3>
+        <p>Divido y forro espacios con estructura de perfilería y placas de pladur, listos para pintar.</p>
+      </div>
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><rect x="6" y="10" width="28" height="6"/><circle cx="14" cy="26" r="2.5"/><circle cx="26" cy="26" r="2.5"/><line x1="14" y1="16" x2="14" y2="23.5"/><line x1="26" y1="16" x2="26" y2="23.5"/></svg>
+        <h3>Techos y falsos techos</h3>
+        <p>Techos continuos, registrables o preparados con hueco para focos e instalaciones.</p>
+      </div>
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><rect x="7" y="7" width="26" height="26"/><path d="M12 12l16 16M28 12L12 28" opacity="0.4"/></svg>
+        <h3>Aislamiento térmico y acústico</h3>
+        <p>Relleno con lana mineral o similar para que la casa guarde el calor y el ruido se quede fuera.</p>
+      </div>
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><rect x="12" y="5" width="16" height="30"/><circle cx="24" cy="20" r="1.4" fill="#2B4570" stroke="none"/></svg>
+        <h3>Puertas y molduras</h3>
+        <p>Coloco puertas, marcos, rodapiés y molduras con acabado fino.</p>
+      </div>
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><rect x="8" y="8" width="24" height="24"/><line x1="8" y1="16" x2="32" y2="16" opacity="0.4"/><line x1="8" y1="24" x2="32" y2="24" opacity="0.4"/></svg>
+        <h3>Alisados y guarnecidos</h3>
+        <p>Dejo paredes y techos lisos, sin marcas, preparados para pintar o empapelar.</p>
+      </div>
+
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#2B4570" stroke-width="1.6"><path d="M8 32V16l12-9 12 9v16"/><line x1="14" y1="32" x2="14" y2="22" opacity="0.4"/><line x1="26" y1="32" x2="26" y2="22" opacity="0.4"/></svg>
+        <h3>Reforma integral de interior</h3>
+        <p>Coordino la reforma completa de tu casa o local. Fontanería y electricidad las gestiono con oficiales de confianza si hace falta.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="zone" id="zona">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Zona de trabajo</h2>
+      <div class="note">Me desplazo con las herramientas allá donde haga falta.</div>
+    </div>
+    <div class="zone-grid">
+      <div class="zone-block">
+        <h3>Zona principal</h3>
+        <ul class="zone-list">
+          <li>País Vasco</li>
+          <li>Cantabria</li>
+        </ul>
+      </div>
+      <div class="zone-block consulta">
+        <h3>Bajo consulta</h3>
+        <ul class="zone-list">
+          <li>Norte de Castilla y León</li>
+        </ul>
+        <p class="zone-note">Si tu pueblo está cerca de la frontera con Cantabria o el País Vasco, escríbeme igualmente — es fácil que me pase por ahí.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="trabajos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Trabajos</h2>
+      <div class="note">Una muestra del tipo de obra que hago. Fotos reales, en camino.</div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="10" y="10" width="180" height="100"/><line x1="100" y1="10" x2="100" y2="110" stroke-dasharray="3 3"/><line x1="10" y1="60" x2="190" y2="60" opacity="0.35"/></svg>
+        <div class="gallery-caption"><span class="title">Trasdosado en salón</span><span class="tag">Bilbao</span></div>
+      </div>
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="20" y="20" width="160" height="80"/><circle cx="70" cy="60" r="6"/><circle cx="130" cy="60" r="6"/><line x1="70" y1="20" x2="70" y2="54" opacity="0.35"/><line x1="130" y1="20" x2="130" y2="54" opacity="0.35"/></svg>
+        <div class="gallery-caption"><span class="title">Techo continuo con luz indirecta</span><span class="tag">Santander</span></div>
+      </div>
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><path d="M20 100V45l60-30 60 30v55" /><line x1="60" y1="100" x2="60" y2="70" opacity="0.35"/><line x1="120" y1="100" x2="120" y2="70" opacity="0.35"/></svg>
+        <div class="gallery-caption"><span class="title">Reforma integral de bajo</span><span class="tag">Vitoria-Gasteiz</span></div>
+      </div>
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="15" y="15" width="170" height="90"/><path d="M15 15l170 90M185 15L15 105" opacity="0.3"/></svg>
+        <div class="gallery-caption"><span class="title">Aislamiento en buhardilla</span><span class="tag">San Sebastián</span></div>
+      </div>
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="70" y="15" width="60" height="90"/><circle cx="118" cy="60" r="2" fill="#2B4570" stroke="none"/></svg>
+        <div class="gallery-caption"><span class="title">Puertas y rodapiés a juego</span><span class="tag">Laredo</span></div>
+      </div>
+
+      <div class="gallery-card">
+        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="10" y="10" width="180" height="100"/><line x1="10" y1="40" x2="190" y2="40" opacity="0.3"/><line x1="10" y1="70" x2="190" y2="70" opacity="0.3"/></svg>
+        <div class="gallery-caption"><span class="title">Alisado antes de pintar</span><span class="tag">Torrelavega</span></div>
+      </div>
+
+    </div>
+    <p class="gallery-hint">Estos dibujos marcan el hueco donde irán tus fotos reales — en cuanto las tengas listas, sustituyen a estos bocetos y la web queda con obra tuya de verdad.</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-inner">
+    <div>
+      <h2>Cómo trabajo</h2>
+      <p>Vengo a medir, te digo lo que hace falta y un precio claro antes de tocar nada. Trabajo solo, así que la obra la sigo yo de principio a fin — sin subcontratas de por medio.</p>
+      <p>Si tu reforma necesita fontanería o electricidad, te lo digo antes de empezar y coordinamos con quien corresponda. Yo me quedo con la estructura, los acabados y que todo quede a nivel.</p>
+    </div>
+    <div class="about-marks">
+      <div class="about-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B4570" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>
+        <span>Presupuesto cerrado antes de empezar, sin sorpresas al final.</span>
+      </div>
+      <div class="about-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B4570" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>
+        <span>Obra limpia y recogida cada día, no solo al terminar.</span>
+      </div>
+      <div class="about-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2B4570" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>
+        <span>Contacto directo conmigo, por teléfono o WhatsApp, durante toda la obra.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="presupuesto">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Pide presupuesto</h2>
+      <div class="note">Cuéntame qué necesitas y te contesto por WhatsApp.</div>
+    </div>
+    <div class="contact-grid">
+
+      <div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.5 6.5l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+          <div>
+            <div class="lab">Teléfono</div>
+            <a class="val" href="tel:+34603353755">603 35 37 55</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 3.5A11 11 0 0 0 4 18l-1.5 5 5.3-1.4A11 11 0 1 0 20.5 3.5z"/><path d="M8.5 8.5c.3 3 3 5.7 6 6l1-1.5c.2-.3.6-.4.9-.3l2 .8c.4.1.6.5.5.9-.4 1.6-2 2.6-3.6 2.3-4-.8-7.1-3.9-7.9-7.9-.3-1.6.7-3.2 2.3-3.6.4-.1.8.1.9.5l.8 2c.1.3 0 .7-.3.9L8.5 8.5z"/></svg>
+          <div>
+            <div class="lab">WhatsApp</div>
+            <a class="val" href="https://wa.me/34603353755" target="_blank" rel="noopener">603 35 37 55</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div>
+            <div class="lab">Zona</div>
+            <div class="val" style="font-size:1.1rem;">País Vasco · Cantabria</div>
+          </div>
+        </div>
+      </div>
+
+      <form id="budget-form">
+        <div class="field">
+          <label for="f-name">Nombre</label>
+          <input type="text" id="f-name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Teléfono</label>
+          <input type="tel" id="f-phone" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="f-place">Localidad</label>
+          <input type="text" id="f-place" name="place" placeholder="Ej: Santurce, Bilbao...">
+        </div>
+        <div class="field">
+          <label>Tipo de trabajo</label>
+          <div class="checks">
+            <label class="check-item"><input type="checkbox" value="Tabiques y trasdosados"> Tabiques y trasdosados</label>
+            <label class="check-item"><input type="checkbox" value="Techos y falsos techos"> Techos y falsos techos</label>
+            <label class="check-item"><input type="checkbox" value="Aislamiento"> Aislamiento</label>
+            <label class="check-item"><input type="checkbox" value="Puertas y molduras"> Puertas y molduras</label>
+            <label class="check-item"><input type="checkbox" value="Alisados y guarnecidos"> Alisados y guarnecidos</label>
+            <label class="check-item"><input type="checkbox" value="Reforma integral"> Reforma integral</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-desc">Cuéntame qué necesitas</label>
+          <textarea id="f-desc" name="desc" required placeholder="Metros aproximados, estado actual, cuándo te iría bien empezar..."></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 3.5A11 11 0 0 0 4 18l-1.5 5 5.3-1.4A11 11 0 1 0 20.5 3.5z"/></svg>
+            Enviar por WhatsApp
+          </button>
+          <span class="form-note">Se abre WhatsApp con tu mensaje ya escrito, listo para enviar.</span>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div><span class="fbrand">Dima Gujejiani</span> — Reformas y pladur, autónomo</div>
+    <div>Tel. / WhatsApp: 603 35 37 55 · País Vasco y Cantabria</div>
+  </div>
+</footer>
+
+<a class="fab-wa" href="https://wa.me/34603353755" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.5 3.5A11 11 0 0 0 4 18l-1.5 5 5.3-1.4A11 11 0 1 0 20.5 3.5zm-8.5 16a9 9 0 0 1-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A9 9 0 1 1 12 19.5zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+  document.getElementById('budget-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const place = document.getElementById('f-place').value.trim();
+    const desc = document.getElementById('f-desc').value.trim();
+    const checks = Array.from(document.querySelectorAll('.checks input:checked')).map(c => c.value);
+
+    let msg = `Hola Dima, soy ${name}. Te escribo desde la web para pedir presupuesto.\n`;
+    msg += `Teléfono: ${phone}\n`;
+    if (place) msg += `Localidad: ${place}\n`;
+    if (checks.length) msg += `Tipo de trabajo: ${checks.join(', ')}\n`;
+    msg += `Detalles: ${desc}`;
+
+    const url = `https://wa.me/34603353755?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
