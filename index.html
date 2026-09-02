@@ -296,9 +296,25 @@
   .gallery-card{
     background: var(--plaster-card);
     border: 1px solid var(--grey-line);
-    padding: 22px 20px 18px;
+    padding: 0 0 18px;
+    overflow: hidden;
   }
   .gallery-card svg{ width: 100%; height: 130px; }
+  .gallery-card .photo-frame{
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background: var(--grey-line);
+  }
+  .gallery-card .photo-frame img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .gallery-card:hover .photo-frame img{ transform: scale(1.04); }
+  .gallery-card .gallery-caption{ padding: 14px 20px 0; }
   .gallery-caption{
     margin-top: 14px;
     display:flex;
@@ -618,37 +634,37 @@
     <div class="gallery-grid">
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="10" y="10" width="180" height="100"/><line x1="100" y1="10" x2="100" y2="110" stroke-dasharray="3 3"/><line x1="10" y1="60" x2="190" y2="60" opacity="0.35"/></svg>
-        <div class="gallery-caption"><span class="title">Trasdosado en salón</span><span class="tag">Bilbao</span></div>
+        <div class="photo-frame"><img src="images/trabajo-1.jpg" alt="Registro de instalación con aislamiento visto, trabajo de pladur"></div>
+        <div class="gallery-caption"><span class="title">Registro con aislamiento visto</span><span class="tag">Obra en curso</span></div>
       </div>
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="20" y="20" width="160" height="80"/><circle cx="70" cy="60" r="6"/><circle cx="130" cy="60" r="6"/><line x1="70" y1="20" x2="70" y2="54" opacity="0.35"/><line x1="130" y1="20" x2="130" y2="54" opacity="0.35"/></svg>
-        <div class="gallery-caption"><span class="title">Techo continuo con luz indirecta</span><span class="tag">Santander</span></div>
+        <div class="photo-frame"><img src="images/trabajo-2.jpg" alt="Estructura de techo de pladur con instalaciones vistas"></div>
+        <div class="gallery-caption"><span class="title">Estructura de techo con instalaciones</span><span class="tag">Obra en curso</span></div>
       </div>
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><path d="M20 100V45l60-30 60 30v55" /><line x1="60" y1="100" x2="60" y2="70" opacity="0.35"/><line x1="120" y1="100" x2="120" y2="70" opacity="0.35"/></svg>
-        <div class="gallery-caption"><span class="title">Reforma integral de bajo</span><span class="tag">Vitoria-Gasteiz</span></div>
+        <div class="photo-frame"><img src="images/trabajo-3.jpg" alt="Pared de pladur en proceso de guarnecido y alisado"></div>
+        <div class="gallery-caption"><span class="title">Pared en proceso de alisado</span><span class="tag">Obra en curso</span></div>
       </div>
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="15" y="15" width="170" height="90"/><path d="M15 15l170 90M185 15L15 105" opacity="0.3"/></svg>
-        <div class="gallery-caption"><span class="title">Aislamiento en buhardilla</span><span class="tag">San Sebastián</span></div>
+        <div class="photo-frame"><img src="images/trabajo-4.jpg" alt="Techo registrable de pladur terminado"></div>
+        <div class="gallery-caption"><span class="title">Techo registrable terminado</span><span class="tag">Acabado</span></div>
       </div>
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="70" y="15" width="60" height="90"/><circle cx="118" cy="60" r="2" fill="#2B4570" stroke="none"/></svg>
-        <div class="gallery-caption"><span class="title">Puertas y rodapiés a juego</span><span class="tag">Laredo</span></div>
+        <div class="photo-frame"><img src="images/trabajo-5.jpg" alt="Pasillo con trasdosados de pladur y celosías de luz"></div>
+        <div class="gallery-caption"><span class="title">Trasdosados con celosías de luz</span><span class="tag">Obra en curso</span></div>
       </div>
 
       <div class="gallery-card">
-        <svg viewBox="0 0 200 120" fill="none" stroke="#2B4570" stroke-width="1.4"><rect x="10" y="10" width="180" height="100"/><line x1="10" y1="40" x2="190" y2="40" opacity="0.3"/><line x1="10" y1="70" x2="190" y2="70" opacity="0.3"/></svg>
-        <div class="gallery-caption"><span class="title">Alisado antes de pintar</span><span class="tag">Torrelavega</span></div>
+        <div class="photo-frame"><img src="images/trabajo-6.jpg" alt="Estructura de techo de pladur con luz natural"></div>
+        <div class="gallery-caption"><span class="title">Estructura de techo con luz natural</span><span class="tag">Obra en curso</span></div>
       </div>
 
     </div>
-    <p class="gallery-hint">Estos dibujos marcan el hueco donde irán tus fotos reales — en cuanto las tengas listas, sustituyen a estos bocetos y la web queda con obra tuya de verdad.</p>
+    <p class="gallery-hint">Fotos reales de obras en curso. Se van actualizando con cada trabajo terminado.</p>
   </div>
 </section>
 
